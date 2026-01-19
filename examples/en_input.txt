@@ -1,0 +1,1 @@
+It is worth noting that this paper aims to propose an improved method based on WGAN-GP and conducts experiments on the NSL-KDD dataset. The experimental results show that the method significantly improves accuracy. In summary, the proposed method is of great significance.
