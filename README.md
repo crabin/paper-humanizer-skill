@@ -146,6 +146,73 @@ the NSL-KDD dataset. Results demonstrate a X% accuracy improvement,
 indicating the method's practical value in network intrusion detection.
 ```
 
+## 🧪 测试用例
+
+以下两个测试用例可用于验证 skill 功能是否正常。
+
+### 测试用例一：中文学术段落（含多种 AI 痕迹）
+
+**输入文本**（来自 `examples/zh_input_rich.txt`）：
+```
+在当今人工智能技术迅猛发展的背景下，网络安全问题愈发凸显其重要性。值得注意的是，传统的入侵
+检测系统在面对不断演变的网络攻击时，往往表现出明显的局限性。不难发现，现有方法在处理类别不
+平衡数据集时存在诸多不足，严重制约了模型的泛化能力。
+
+为了解决上述问题，本文旨在提出一种基于改进WGAN-GP的入侵检测方法。本文将深度学习与生成对抗
+网络有机结合，充分发挥二者各自的优势，有效地、全面地解决了传统方法存在的不足之处。
+
+综上所述，本文提出的方法不仅在技术层面实现了重要突破，更为入侵检测领域的发展提供了新的思路
+和方向，具有重要的理论意义和实践价值。
+```
+
+**预期 AI 特征分析**：
+- ❌ 模式词：「值得注意的是」「不难发现」「本文旨在」「综上所述」「有效地、全面地」「具有重要意义」
+- ❌ 空洞套话：「充分发挥」「有机结合」「具有重要的理论意义和实践价值」
+- ❌ 无量化支撑的「显著提升」「重要突破」
+
+**预期优化结果示例**：
+```
+传统入侵检测系统难以应对持续演变的网络攻击，在类别不平衡数据集上的泛化能力尤为薄弱。
+本研究提出一种基于改进 WGAN-GP 的入侵检测方法，将生成对抗网络与深度学习相结合，针对
+类别不平衡问题进行专项优化。实验结果表明，该方法在 NSL-KDD 数据集上的准确率、召回率
+和 F1 值均有提升，具体改进幅度见表2。
+```
+
+---
+
+### 测试用例二：英文学术段落（含多种 AI 痕迹）
+
+**输入文本**（来自 `examples/en_input_rich.txt`）：
+```
+In today's rapidly evolving digital landscape, cybersecurity threats are becoming increasingly
+sophisticated. It is worth noting that traditional intrusion detection systems often struggle
+to keep pace with the ever-changing nature of network attacks.
+
+To address this issue, this paper aims to propose an innovative framework based on an improved
+WGAN-GP architecture. Furthermore, the method holistically addresses the multifaceted challenges
+of intrusion detection in a comprehensive and robust manner.
+
+In conclusion, the proposed method represents a significant advancement in the field. Based on
+the above analysis, it can be concluded that this work has far-reaching implications for
+cybersecurity research and practice.
+```
+
+**预期 AI 特征分析**：
+- ❌ 模式词：`It is worth noting that`、`this paper aims to`、`In conclusion`、`Based on the above analysis`
+- ❌ 空洞修饰：`rapidly evolving landscape`、`holistically addresses the multifaceted challenges`、`comprehensive and robust`
+- ❌ 无量化支撑的 `significant advancement`、`far-reaching implications`
+
+**预期优化结果示例**：
+```
+Traditional intrusion detection systems struggle to adapt to evolving network attacks, particularly
+under class-imbalanced conditions. This work proposes an improved WGAN-GP framework that directly
+targets class imbalance in intrusion detection. On the NSL-KDD dataset, the method achieves
+improvements in accuracy, recall, and F1 score over existing baselines (see Table 2), suggesting
+practical applicability in real-world cybersecurity deployments.
+```
+
+---
+
 ## 📂 项目结构
 
 ```
@@ -160,8 +227,10 @@ paper-humanizer/
 │   ├── paper_humanizer.py         # Python CLI 工具
 │   └── paper_humanizer.sh         # Bash 包装脚本
 └── examples/                      # 使用示例
-    ├── zh_input.txt               # 中文示例输入
-    ├── en_input.txt               # 英文示例输入
+    ├── zh_input.txt               # 中文简单示例输入
+    ├── zh_input_rich.txt          # 中文完整段落示例（含 6+ AI 痕迹）
+    ├── en_input.txt               # 英文简单示例输入
+    ├── en_input_rich.txt          # 英文完整段落示例（含 8+ AI 痕迹）
     └── run_demo.sh                # 演示脚本
 ```
 
