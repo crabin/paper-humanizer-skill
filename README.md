@@ -14,8 +14,27 @@
 
 ### 作为 Claude Code Skill 使用
 
-1. 确保 skill 已安装在 `~/.claude/skills/paper-humanizer/`
-2. 在对话中直接使用，系统会自动应用相应的提示词
+### 作为 Claude Code Skill 使用
+
+#### 安装步骤
+
+```bash
+# 从 GitHub 克隆仓库
+git clone https://github.com/crabin/paper-humanizer-skill.git /tmp/paper-humanizer-skill
+
+# 创建 skills 目录（如果不存在）
+mkdir -p ~/.claude/skills/
+
+# 复制到 skills 目录
+cp -r /tmp/paper-humanizer-skill ~/.claude/skills/paper-humanizer
+
+# 验证安装
+ls ~/.claude/skills/paper-humanizer/
+```
+
+#### 使用
+
+在对话中直接使用，系统会自动应用相应的提示词。
 
 ### 命令行脚本使用
 
