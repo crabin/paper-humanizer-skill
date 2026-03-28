@@ -14,8 +14,6 @@
 
 ### 作为 Claude Code Skill 使用
 
-### 作为 Claude Code Skill 使用
-
 #### 安装步骤
 
 ```bash
